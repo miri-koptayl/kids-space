@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cloudinary-angular": "^1.0.1",
+    "sweetalert2": "^11.22.2"
+  }
+}
