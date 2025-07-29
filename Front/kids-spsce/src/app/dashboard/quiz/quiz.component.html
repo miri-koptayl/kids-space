@@ -1,0 +1,70 @@
+<div class="quiz-container">
+
+    <div class="category-selection-panel">
+        <label for="category-select" class="category-label">בחר קטגוריה:</label>
+        <div class="select-wrapper">
+            <select id="category-select" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+                <option [value]="null" disabled selected>-- בחר קטגוריה --</option>
+                <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+            </select>
+            <span class="select-arrow">▼</span>
+        </div>
+    </div>
+
+    <div class="empty-state" *ngIf="questions.length === 0 && selectedCategory !== null">
+        <p>...טוען שאלות או שאין שאלות בקטגוריה זו. אנא בחר קטגוריה אחרת.</p>
+    </div>
+    <div class="empty-state" *ngIf="selectedCategory === null">
+        <p>✨ בחר קטגוריה כדי להתחיל את השאלון!</p>
+    </div>
+
+    <div class="question-card" *ngIf="questions.length > 0">
+        <h3 class="question-text" [innerHTML]="questions[currentQuestionIndex]?.question"></h3>
+
+        <div class="answers-grid">
+            <button
+                *ngFor="let ans of questions[currentQuestionIndex]?.allAnswers"
+                [disabled]="showResult"
+                (click)="selectAnswer(ans)"
+                [ngClass]="{
+                    'answer-button': true,
+                    'correct-answer': showResult && ans === questions[currentQuestionIndex].correct_answer,
+                    'wrong-answer': showResult && selectedAnswer === ans && ans !== questions[currentQuestionIndex].correct_answer,
+                    'selected-wrong': showResult && selectedAnswer === ans && ans !== questions[currentQuestionIndex].correct_answer
+                }"
+            >
+                {{ ans }}
+            </button>
+        </div>
+
+        <div class="result-section" *ngIf="showResult">
+            <p class="feedback-message" [ngClass]="{'correct-feedback': isCorrect, 'wrong-feedback': !isCorrect}">
+                <span *ngIf="isCorrect">🎉 תשובה נכונה!</span>
+                <span *ngIf="!isCorrect">❌ תשובה שגויה.</span>
+            </p>
+            <p class="correct-info" *ngIf="!isCorrect">
+                התשובה הנכונה היא: <strong>{{ questions[currentQuestionIndex].correct_answer }}</strong>
+            </p>
+
+            <button
+                (click)="nextQuestion()"
+                *ngIf="currentQuestionIndex < questions.length - 1"
+                class="next-question-button"
+            >
+                שאלה הבאה <span class="button-icon">➡️</span>
+            </button>
+
+            <p class="quiz-complete-message" *ngIf="currentQuestionIndex >= questions.length - 1">
+                ✅ סיימת את השאלון! כל הכבוד!
+            </p>
+        </div>
+    </div>
+
+    <div class="score-display-card" *ngIf="questions.length > 0">
+        <p class="score-text">
+            <span class="score-icon">🏆</span>
+            ניקוד נוכחי: <span class="current-score">{{ score }}</span>
+        </p>
+    </div>
+
+</div>

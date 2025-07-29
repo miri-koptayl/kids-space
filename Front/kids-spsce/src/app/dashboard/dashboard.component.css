@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:host {
+  font-family: 'Varela Round', sans-serif;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8e6cf 0%, #dce3ff 100%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.dashboard-nav-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 15px 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  flex-wrap: wrap;
+}
+
+.dashboard-link {
+  text-decoration: none;
+  color: #3F51B5;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.dashboard-link:hover {
+  background-color: #E8EAF6;
+  color: #303F9F;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-link.active-link {
+  background: linear-gradient(135deg, #3F51B5 0%, #5C6BC0 100%);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.main-dashboard-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.user-summary-panel {
+  flex: 1;
+  min-width: 280px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.main-content-panel {
+  flex: 2;
+  min-width: 0;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-out;
+  display: flex; /* הוסף display: flex כדי ליישר את התוכן */
+  flex-direction: column; /* יישור אנכי */
+  justify-content: center; /* ממורכז אנכית */
+  align-items: center; /* ממורכז אופקית */
+  text-align: center; /* יישור טקסט למרכז */
+}
+
+/* ------------------------------------- */
+/* עיצוב הודעת ברירת המחדל */
+/* ------------------------------------- */
+.welcome-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* תופס את כל גובה הפאנל */
+  padding: 20px;
+  box-sizing: border-box;
+  color: #4CAF50; /* צבע טקסט ראשי */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+  animation: slideInUp 0.8s ease-out; /* אנימציה לכניסה חלקה */
+}
+
+.welcome-message-title {
+  font-size: 2.5em; /* גודל כותרת גדול יותר */
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #2196F3; /* צבע כותרת שונה */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  animation: scaleIn 0.6s ease-out;
+}
+
+.welcome-message-text {
+  font-size: 1.5em; /* גודל טקסט ראשי */
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #424242; /* צבע טקסט אפרפר */
+  max-width: 500px; /* רוחב מקסימלי כדי למנוע שורות ארוכות מדי */
+  direction: rtl;
+}
+
+.sparkle {
+  font-size: 1.2em;
+  vertical-align: middle;
+  margin: 0 5px;
+  color: #FFD700; /* צבע זהב */
+  animation: sparkleAnimation 1s infinite alternate;
+  display: inline-block; /* כדי שהאנימציה תעבוד טוב */
+}
+
+@keyframes sparkleAnimation {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1.2) rotate(10deg); opacity: 0.8; }
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.3em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 100%); /* החלפת כיוון gradient */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ------------------------------------- */
+/* מדיה קווריות - התאמה למובייל */
+/* ------------------------------------- */
+@media (max-width: 992px) {
+  .main-dashboard-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .user-summary-panel,
+  .main-content-panel {
+    flex: unset;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .dashboard-nav-links {
+    justify-content: center;
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  .dashboard-link {
+    font-size: 1.1em;
+    padding: 7px 12px;
+  }
+
+  .welcome-message-title {
+    font-size: 2em;
+  }
+
+  .welcome-message-text {
+    font-size: 1.2em;
+    max-width: 90%;
+  }
+
+  .cta-button {
+    font-size: 1.1em;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding: 15px 10px;
+  }
+
+  .dashboard-wrapper {
+    gap: 20px;
+  }
+
+  .dashboard-nav-links {
+    padding: 10px 15px;
+  }
+
+  .dashboard-link {
+    font-size: 1em;
+    padding: 6px 10px;
+  }
+
+  .user-summary-panel,
+  .main-content-panel {
+    padding: 20px;
+  }
+
+  .welcome-message-title {
+    font-size: 1.8em;
+  }
+
+  .welcome-message-text {
+    font-size: 1em;
+  }
+
+  .cta-button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="activity-detail-card">
+    <div class="activity-header">
+        <span class="activity-icon" *ngIf="activity.type === 'story'">📖</span>
+        <span class="activity-icon" *ngIf="activity.type === 'mission'">🎯</span>
+        <span class="activity-icon" *ngIf="!activity.type">✨</span>
+        <h2>{{ activity.title }}</h2>
+    </div>
+
+    <div class="activity-info">
+        <p><strong>תיאור:</strong> {{ activity.description }}</p>
+        <p class="points-value">
+            <span class="points-icon">🌟</span>
+            **נקודות:** {{ activity.pointsValue }}
+        </p>
+    </div>
+
+    <div *ngIf="activity.type === 'story'" class="story-content-section">
+        <h3>תוכן הסיפור:</h3>
+        <pre class="story-pre">{{ storyText }}</pre>
+    </div>
+    <button (click)="addPoint()" class="add-point-button">
+        <span class="add-point-button">✅</span>
+        קראתי
+    </button>
+    <button (click)="onBack()" class="back-button">
+        <span class="button-icon">🔙</span>
+        חזור לרשימה
+    </button>
+</div>

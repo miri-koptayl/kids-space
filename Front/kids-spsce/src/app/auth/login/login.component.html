@@ -1,0 +1,55 @@
+<div class="login-card">
+  <h2>ברוכים השבים! <span class="sparkle"></span></h2>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="username">שם משתמש:</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="username"
+          name="UserName"
+          [(ngModel)]="UserName"
+          required
+          #userNameField="ngModel"
+          placeholder="הזינו את שם המשתמש שלכם"
+        />
+        <span class="input-icon">👤</span>
+      </div>
+      <div *ngIf="userNameField.invalid && userNameField.touched" class="validation-error">
+        שם משתמש נדרש.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">סיסמה:</label>
+      <div class="input-wrapper">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          #passwordField="ngModel"
+          placeholder="הזינו את הסיסמה שלכם"
+        />
+        <span class="input-icon">🔒</span>
+      </div>
+      <div *ngIf="passwordField.invalid && passwordField.touched" class="validation-error">
+        סיסמה נדרשת.
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="message error-message">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="message success-message">
+      {{ successMessage }}
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid" class="login-button">
+      <span class="button-icon">🚀</span>
+      התחבר
+    </button>
+  </form>
+</div>

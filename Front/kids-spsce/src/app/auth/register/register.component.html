@@ -1,0 +1,111 @@
+<div class="register-card">
+  <h2><span class="sparkle">✨</span> הצטרפו לכיף! <span class="sparkle">✨</span></h2>
+
+  <form (ngSubmit)="register()" #registerForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="username">שם משתמש:</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="username"
+          name="UserName"
+          [(ngModel)]="username"
+          required
+          #userNameField="ngModel"
+          placeholder="בחרו שם משתמש ייחודי"
+        />
+        <span class="input-icon">👤</span>
+      </div>
+      <div *ngIf="userNameField.invalid && userNameField.touched" class="validation-error">
+        שם משתמש נדרש.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">אימייל:</label>
+      <div class="input-wrapper">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          email
+          #emailField="ngModel"
+          placeholder="הזינו כתובת אימייל"
+        />
+        <span class="input-icon">✉️</span>
+      </div>
+      <div *ngIf="emailField.invalid && emailField.touched" class="validation-error">
+        <div *ngIf="emailField.errors?.['required']">אימייל נדרש.</div>
+        <div *ngIf="emailField.errors?.['email']">פורמט אימייל שגוי.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">סיסמה:</label>
+      <div class="input-wrapper">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          #passwordField="ngModel"
+          placeholder="בחרו סיסמה סודית"
+        />
+        <span class="input-icon">🔒</span>
+      </div>
+      <div *ngIf="passwordField.invalid && passwordField.touched" class="validation-error">
+        סיסמה נדרשת.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age">גיל:</label>
+      <div class="input-wrapper">
+        <input
+          type="number"
+          id="age"
+          name="age"
+          [(ngModel)]="age"
+          required
+          min="0"
+          max="99"
+          #ageField="ngModel"
+          placeholder="מה הגיל שלך?"
+        />
+        <span class="input-icon">🎂</span>
+      </div>
+      <div *ngIf="ageField.invalid && ageField.touched" class="validation-error">
+        גיל נדרש.
+        <div *ngIf="ageField.errors?.['min'] || ageField.errors?.['max']">גיל חייב להיות בין 0 ל-99.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="profilePicture">תמונת פרופיל:</label>
+      <div class="input-wrapper">
+        <input
+          type="file"
+          id="profilePicture"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+        />
+        <span class="input-icon">🖼️</span>
+      </div>
+    </div>
+    
+    <div *ngIf="errorMessage" class="message error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="successMessage" class="message success-message">
+      {{ successMessage }}
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid" class="register-button">
+      <span class="button-icon">🎉</span>
+      הרשמה לכיף!
+    </button>
+  </form>
+</div>

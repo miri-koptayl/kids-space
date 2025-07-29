@@ -1,0 +1,80 @@
+/* Import the same font for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+/* Container for the auth links */
+.auth-links-container {
+  display: flex;
+  justify-content: center; /* Center the links */
+  align-items: center;
+  gap: 15px; /* Space between links and separator */
+  margin-top: 30px; /* Space from the top of the dashboard or element above */
+  margin-bottom: 30px; /* Space from the router-outlet below */
+  font-family: 'Varela Round', sans-serif;
+}
+
+.auth-link {
+  padding: 12px 25px; /* Generous padding for clickable area */
+  border-radius: 25px; /* Fully rounded pill shape */
+  text-decoration: none; /* No underline */
+  font-weight: bold;
+  font-size: 1.1em;
+  color: white; /* White text for contrast on gradients */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover */
+  display: inline-flex; /* Allows text and emoji alignment if you add any */
+  align-items: center;
+  justify-content: center;
+  direction: rtl; /* Ensure Hebrew text direction */
+}
+
+.auth-link:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Specific gradients for each link, matching dashboard style */
+.login-link {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); /* Green gradient (similar to points card) */
+}
+
+.register-link {
+  background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%); /* Blue gradient (similar to age card) */
+}
+
+.auth-separator {
+  color: #777; /* Subtle grey for the separator */
+  font-size: 1.5em; /* Larger to be noticeable */
+  font-weight: bold;
+  margin: 0 5px; /* Small space around the separator */
+}
+
+/* Optional: Add an icon to the links for more visual appeal */
+.login-link::before {
+  content: '🔑'; /* Key emoji for login */
+  margin-left: 8px; /* Space between emoji and text */
+  font-size: 1.2em;
+}
+
+.register-link::before {
+  content: '✍️'; /* Pencil/hand emoji for register */
+  margin-left: 8px;
+  font-size: 1.2em;
+}
+
+/* Basic responsive adjustments if needed */
+@media (max-width: 480px) {
+  .auth-links-container {
+    flex-direction: column; /* Stack links vertically on small screens */
+    gap: 10px;
+  }
+
+  .auth-separator {
+    display: none; /* Hide separator when stacked */
+  }
+
+  .auth-link {
+    width: 80%; /* Make links wider on small screens */
+    max-width: 250px;
+    padding: 10px 20px;
+  }
+}

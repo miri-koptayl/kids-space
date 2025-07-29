@@ -1,0 +1,40 @@
+<div class="game-container" >
+    <h2 class="game-title">משחק בול פגיעה  🎯</h2>
+    <p class="game-description">נסה/י לנחש את הקוד הסודי בן 4 הספרות השונות. יש לך {{ maxAttempts - attempts }} ניסיונות .</p>
+  
+    <button class="start-button" (click)="startGame()" [disabled]="!gameOver && attempts > 0">
+      {{ gameOver ? 'התחל משחק חדש' : 'הפעל מחדש' }}
+    </button>
+   
+    <div *ngIf="!gameOver" class="game-input-area">
+      <label for="guessInput" class="input-label">הכנס 4 ספרות שונות:</label>
+      <div class="input-and-button">
+        <input 
+          id="guessInput" 
+          [(ngModel)]="currentGuess" 
+          maxlength="4" 
+          pattern="\d{4}" 
+          [disabled]="gameOver" 
+          class="guess-input"
+        />
+        <button class="check-button" (click)="checkGuess()" [disabled]="gameOver || currentGuess.length !== 4">
+          בדוק
+        </button>
+      </div>
+    </div>
+   
+    <div class="feedback-area" [ngClass]="{'win': gameOver && feedback.includes('מזל טוב'), 'lose': gameOver && !feedback.includes('מזל טוב')}">
+      <p *ngIf="feedback">{{ feedback }}</p>
+    </div>
+   
+    <div *ngIf="history.length > 0" class="history-area">
+      <h3 class="history-title">היסטוריית ניסיונות:</h3>
+      <ul class="history-list">
+        <li *ngFor="let attempt of history; let i = index" class="history-item">
+          <span class="attempt-number">ניסיון {{ i + 1 }}:</span> 
+          <span class="attempt-guess">{{ attempt.guess }}</span>
+          <span class="attempt-result">{{ attempt.result }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>

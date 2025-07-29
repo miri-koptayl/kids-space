@@ -1,0 +1,46 @@
+<div class="achievements-page-container">
+    <h2>ההישגים שלי 🏆</h2>
+  
+    <div *ngIf="userAchievements && userAchievements.length > 0; else noAchievementsTemplate">
+      <p>כל הכבוד! אלה ההישגים שצברת עד כה:</p>
+      <ul class="achievements-list">
+        <li *ngFor="let achievement of userAchievements" class="achievement-item">
+          <div class="achievement-icon">
+            <span *ngIf="achievement.icon">{{ achievement.icon }}</span>
+            <span *ngIf="!achievement.icon">⭐</span> 
+          </div>
+          <div class="achievement-details">
+            <h3>{{ achievement.name }}</h3>         
+            <p>{{ achievement.description }}</p>   
+            <span class="achievement-status">נצבר!</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <ng-template #noAchievementsTemplate>
+      <div class="no-achievements-message">
+        <img src="assets/images/rocket.png" alt="אין הישגים" class="rocket-image" />
+        <p>אין לך עדיין הישגים להצגה. המשך לשחק!</p>
+      </div>
+    </ng-template>
+  
+    <div *ngIf="nextUserAchievements" class="next-achievement-section">
+      <h3>ההישג הבא שלך:</h3>
+      <div class="next-achievement-card">
+        <div class="achievement-icon">
+          <span *ngIf="nextUserAchievements.icon">{{ nextUserAchievements.icon }}</span>
+          <span *ngIf="!nextUserAchievements.icon">✨</span>
+        </div>
+        <div class="achievement-details">
+          <h4>{{ nextUserAchievements.name }}</h4>
+          <p>{{ nextUserAchievements.description }}</p>
+          <p class="required-points">דרוש: {{ nextUserAchievements.requiredPoints }} נקודות</p>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="!nextUserAchievements && userAchievements && userAchievements.length > 0" class="no-next-achievement-message">
+      <p>כל הכבוד! צברת את כל ההישגים האפשריים עד כה. 🏆</p>
+    </div>
+  </div>

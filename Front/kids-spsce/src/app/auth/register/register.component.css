@@ -1,0 +1,223 @@
+/* Import the same font for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+/* Basic styling for the body/host to center the form */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8e6cf 0%, #dce3ff 100%); /* Soft, playful background */
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.register-card {
+  background-color: #ffffff;
+  border-radius: 25px; /* Rounded corners */
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Prominent, soft shadow */
+  max-width: 450px; /* Wider card for form */
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  direction: rtl; /* Right-to-left for Hebrew */
+  animation: fadeIn 0.8s ease-out; /* Fade-in animation for the card */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.register-card h2 {
+  font-size: 2.2em;
+  color: #FF5722; /* Vibrant orange for heading */
+  margin-bottom: 35px;
+  font-weight: 800;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-card h2 .sparkle {
+  font-size: 0.8em; /* Smaller sparkle emoji */
+  margin: 0 5px;
+  animation: sparkleScale 1.5s infinite alternate; /* Pulsing sparkle */
+}
+
+@keyframes sparkleScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.form-group {
+  margin-bottom: 25px; /* Space between form fields */
+  text-align: right; /* Labels align right */
+}
+
+.form-group label {
+  display: block; /* Label on its own line */
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex; /* For input and icon */
+  align-items: center;
+  background-color: #f0f2f5; /* Light grey background for input area */
+  border-radius: 15px; /* Rounded input field */
+  padding: 5px; /* Padding inside wrapper */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08); /* Inner shadow for depth */
+  border: 1px solid transparent; /* Default transparent border */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: #2196F3; /* Blue border on focus */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(33, 150, 243, 0.3); /* Blue glow */
+}
+
+.input-wrapper input {
+  flex-grow: 1; /* Input takes up available space */
+  border: none;
+  background: transparent;
+  padding: 12px 15px;
+  font-size: 1.1em;
+  color: #333;
+  outline: none; /* Remove default focus outline */
+  border-radius: 10px; /* Inner border radius */
+  direction: rtl; /* Ensure input text direction */
+}
+
+.input-wrapper .input-icon {
+  font-size: 1.3em; /* Emoji size for input icon */
+  color: #999;
+  padding: 0 10px;
+  pointer-events: none; /* So it doesn't interfere with clicks */
+}
+
+/* Validation error messages */
+.validation-error {
+  color: #F44336; /* Red color for errors */
+  font-size: 0.85em;
+  margin-top: 5px;
+  text-align: right;
+  font-weight: 500;
+  animation: shake 0.5s ease-in-out; /* Shake animation for errors */
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* General message styling (success/error) */
+.message {
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 0.95em;
+  animation: slideIn 0.5s ease-out; /* Slide in message */
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.error-message {
+  background-color: #FFEBEE; /* Light red background */
+  color: #D32F2F; /* Dark red text */
+  border: 1px solid #EF9A9A;
+}
+
+.success-message {
+  background-color: #E8F5E9; /* Light green background */
+  color: #388E3C; /* Dark green text */
+  border: 1px solid #A5D6A7;
+}
+
+
+/* Register button */
+.register-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); /* Green gradient */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px; /* Fully rounded */
+  font-size: 1.3em;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3); /* Green shadow */
+  transition: all 0.3s ease;
+  width: 100%; /* Full width */
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl; /* Hebrew direction */
+}
+
+.register-button:hover:not(:disabled) {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: 0 12px 25px rgba(76, 175, 80, 0.4); /* Stronger shadow */
+  background: linear-gradient(135deg, #66BB6A 0%, #9CCC65 100%); /* Slightly lighter green on hover */
+}
+
+.register-button:disabled {
+  background: #BDBDBD; /* Grey when disabled */
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.register-button .button-icon {
+  font-size: 1.5em; /* Larger emoji */
+  margin-left: 10px; /* Space from text */
+  animation: bounceButton 1s infinite; /* Gentle bounce */
+}
+
+@keyframes bounceButton {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .register-card {
+    padding: 25px;
+    margin: 10px;
+  }
+
+  .register-card h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .input-wrapper input {
+    padding: 10px 12px;
+    font-size: 1em;
+  }
+
+  .input-wrapper .input-icon {
+    font-size: 1.1em;
+  }
+
+  .register-button {
+    padding: 12px 20px;
+    font-size: 1.1em;
+  }
+}

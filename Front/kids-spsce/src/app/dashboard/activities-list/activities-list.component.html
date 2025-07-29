@@ -1,0 +1,26 @@
+<div class="activities-main-container">
+  
+    <div *ngIf="!selectedActivity && activities.length > 0" class="activities-list-card">
+      <h2><span class="list-title-icon">📚</span> בחר סיפור:</h2>
+      <ul class="activity-titles-list">
+        <li
+          *ngFor="let activity of activities"
+          (click)="selectActivity(activity)"
+          class="activity-list-item"
+        >
+          <span class="item-bullet">✨</span>
+          <span class="activity-title-text">{{ activity.title }}</span>
+          <span class="read-more-button">קרא עוד ▸</span>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="selectedActivity">
+      <app-activity-card [activity]="selectedActivity" (back)="clearSelection()"></app-activity-card>
+    </div>
+  
+    <div *ngIf="!selectedActivity && activities.length === 0" class="no-activities-message">
+      <span class="no-activities-icon">😔</span>
+      <p>אין פעילויות זמינות כרגע. נסו שוב מאוחר יותר!</p>
+    </div>
+  </div>

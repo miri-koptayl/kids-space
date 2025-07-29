@@ -1,0 +1,32 @@
+<div class="dashboard-wrapper">
+    <nav class="dashboard-nav-links">
+      <a routerLink="/dashboard/StoryListComponent" class="dashboard-link" routerLinkActive="active-link">סיפורים</a>
+      <a routerLink="/dashboard/QuizComponent" class="dashboard-link" routerLinkActive="active-link">טרוויה</a>
+      <a routerLink="/dashboard/DamageStampComponent" class="dashboard-link" routerLinkActive="DamageStampComponent-link">בול פגיעה</a>
+      
+      <a (click)="navigateToAchievements()" class="dashboard-link" routerLinkActive="userAchievement-link">ההישגים שלי</a>
+    </nav>
+  
+    <div class="main-dashboard-content">
+      <div class="user-summary-panel">
+        <app-user-summary
+          [user]="user"
+          [userAchievements]="userAchievements"
+          [nextUserAchievements]="nextUserAchievements"
+        ></app-user-summary>
+      </div>
+  
+      <div class="main-content-panel">
+        <router-outlet></router-outlet>
+  
+        <div *ngIf="showDefaultMessage" class="welcome-message-container">
+          <h3 class="welcome-message-title">ברוכים הבאים לעולם הקסום! ✨</h3>
+          <p class="welcome-message-text">
+            צאו למסע מרתק: **בחרו קטגוריה מהתפריט למעלה** – בין אם זה סיפורים מרתקים או אתגרי טרוויה מרגשים –
+            ותתחילו לצבור ידע ונקודות! 🌟
+          </p>
+          <button class="cta-button">בואו נתחיל!</button>
+        </div>
+      </div>
+    </div>
+  </div>

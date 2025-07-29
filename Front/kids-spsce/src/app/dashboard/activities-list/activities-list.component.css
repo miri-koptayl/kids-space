@@ -1,0 +1,202 @@
+/* Import the same font for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top for list */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8e6cf 0%, #dce3ff 100%);
+  padding: 30px;
+  box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
+  direction: rtl; /* Right-to-left for Hebrew */
+}
+
+.activities-main-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* General message styling (success/error) - Copied from auth components */
+.message {
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px; /* Adjust margin for top placement */
+  font-weight: bold;
+  font-size: 0.95em;
+  animation: slideIn 0.5s ease-out;
+  text-align: right;
+  direction: rtl;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.error-message {
+  background-color: #FFEBEE; /* Light red background */
+  color: #D32F2F; /* Dark red text */
+  border: 1px solid #EF9A9A;
+}
+
+/* Styling for the list of activities */
+.activities-list-card {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.activities-list-card h2 {
+  font-size: 2.2em;
+  color: #3F51B5; /* Blue for the list title */
+  margin-bottom: 30px;
+  font-weight: 800;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align title right */
+  padding-left: 20px; /* Space for icon */
+}
+
+.activities-list-card h2 .list-title-icon {
+  font-size: 1.2em;
+  margin-right: 10px;
+  animation: floatListIcon 2s infinite alternate;
+}
+
+@keyframes floatListIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.activity-titles-list {
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list-item {
+  background-color: #F5F5F5;
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out title and button */
+  direction: rtl;
+}
+
+.activity-list-item:hover {
+  background-color: #E8EAF6; /* Light blue on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+}
+
+.activity-list-item .item-bullet {
+  font-size: 1.2em;
+  color: #FFD700; /* Yellow star/sparkle bullet */
+  margin-left: 10px; /* Space from title */
+}
+
+.activity-list-item .activity-title-text {
+  flex-grow: 1; /* Title takes up most space */
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #424242;
+  text-align: right;
+}
+
+.activity-list-item .read-more-button {
+  background-color: #2196F3; /* Blue for read more */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-right: 15px; /* Space from title */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.activity-list-item .read-more-button:hover {
+  background-color: #1976D2; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+/* No activities message */
+.no-activities-message {
+  background-color: #FFFDE7;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  color: #616161;
+  font-size: 1.2em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-activities-message .no-activities-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+  color: #FFC107;
+  animation: sadFaceBounce 1.5s infinite alternate;
+}
+
+@keyframes sadFaceBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Responsive adjustments for parent container */
+@media (max-width: 480px) {
+  :host {
+    padding: 15px;
+  }
+
+  .activities-list-card {
+    padding: 20px;
+  }
+
+  .activities-list-card h2 {
+    font-size: 1.8em;
+  }
+
+  .activity-list-item {
+    flex-direction: column; /* Stack on small screens */
+    align-items: flex-end; /* Align content to right */
+    gap: 8px; /* Space between stacked elements */
+  }
+
+  .activity-list-item .item-bullet {
+    align-self: flex-start; /* Keep bullet to the right */
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .activity-list-item .activity-title-text {
+    width: 100%;
+    font-size: 1em;
+    text-align: right;
+  }
+
+  .activity-list-item .read-more-button {
+    width: 100%;
+    margin-right: 0;
+    font-size: 0.85em;
+    text-align: center;
+  }
+}

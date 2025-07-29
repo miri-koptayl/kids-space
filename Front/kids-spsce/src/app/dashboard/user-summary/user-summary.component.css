@@ -1,0 +1,671 @@
+/* Import the same font for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* הערה: הגדרות ה-body בדרך כלל לא מוגדרות בקומפוננטת ילד כזו.
+   הגדרות ה-body צריכות להיות ב-styles.css הגלובלי או בקומפוננטת האב.
+*/
+/* יש להסיר את ה-body מה-CSS של קומפוננטה זו אם הוא כבר מוגדר גלובלית */
+/* body {
+  font-family: 'Varela Round', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+} */
+
+.user-dashboard-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  /* הגדלת הריפוד הפנימי מעט, תוך שמירה על פרופורציות */
+  padding: 25px; /* חזרה ל-25px, היה 18px */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Varela Round', sans-serif;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-sizing: border-box;
+  display: flex; /* הוספה: כדי שהאלמנטים יסתדרו אחד מתחת לשני */
+  flex-direction: column; /* הוספה: כדי שהאלמנטים יסתדרו אחד מתחת לשני */
+  align-items: center; /* הוספה: למרכז את התוכן */
+}
+
+.user-dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.top-right-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #FFD700;
+  color: #333;
+  /* החזרה לגודל ריפוד מעט גדול יותר */
+  padding: 5px 15px; /* חזרה ל-5px 15px, היה 4px 10px */
+  border-bottom-left-radius: 15px; /* חזרה ל-15px, היה 12px */
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.9em; /* חזרה ל-0.9em, היה 0.8em */
+  font-family: 'Varela Round', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  animation: pulse 1.5s infinite alternate;
+}
+
+.top-right-badge span {
+  font-size: 1.1em; /* חזרה ל-1.1em, היה 1em */
+  margin-left: 5px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Profile Header Section */
+.profile-header {
+  margin-bottom: 25px; /* חזרה ל-25px, היה 20px */
+  width: 100%; /* לוודא שהוא תופס את כל הרוחב המותר לו */
+}
+
+.profile-picture-container {
+  /* הגדלת מידות תמונת הפרופיל */
+  width: 110px; /* חזרה ל-110px, היה 90px */
+  height: 110px; /* חזרה ל-110px, היה 90px */
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a8e6cf 0%, #dce3ff 100%);
+  padding: 4px; /* חזרה ל-4px, היה 3px */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px; /* חזרה ל-12px, היה 10px */
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Styling for the default icon */
+.default-icon {
+  font-size: 3.8em; /* חזרה ל-3.8em, היה 3.2em */
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #f0f2f5;
+  color: #607D8B;
+}
+
+.user-dashboard-card h2 {
+  color: #4CAF50;
+  font-size: 2em; /* חזרה ל-2em, היה 1.7em */
+  margin-bottom: 0;
+  font-weight: 800;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.03);
+  font-family: 'Varela Round', sans-serif;
+  animation: headerColorCycle 8s infinite ease-in-out;
+}
+
+@keyframes headerColorCycle {
+  0% { color: #4CAF50; }
+  33% { color: #2196F3; }
+  66% { color: #F44336; }
+  100% { color: #4CAF50; }
+}
+
+.user-dashboard-card .username {
+  color: #F44336;
+  font-weight: 900;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* הגדלת מרווחים בין כרטיסים */
+  gap: 15px; /* חזרה ל-15px, היה 10px */
+  margin-bottom: 25px; /* חזרה ל-25px, היה 20px */
+  width: 100%; /* לוודא שהוא תופס את כל הרוחב המותר לו */
+}
+
+.stat-card {
+  /* הגדלת ריפוד, רדיוס וגובה מינימלי */
+  border-radius: 15px; /* חזרה ל-15px, היה 12px */
+  padding: 18px; /* חזרה ל-18px, היה 15px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px; /* חזרה ל-110px, היה 95px */
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  font-family: 'Varela Round', sans-serif;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.stat-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card .icon-container {
+  /* הגדלת מידות האייקון */
+  position: absolute;
+  top: 12px; /* חזרה ל-12px, היה 10px */
+  right: 12px; /* חזרה ל-12px, היה 10px */
+  width: 35px; /* חזרה ל-35px, היה 30px */
+  height: 35px; /* חזרה ל-35px, היה 30px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 1.3em; /* חזרה ל-1.3em, היה 1.1em */
+  animation: floatIcon 3s infinite ease-in-out;
+}
+
+.stat-card.points-card .icon-container { animation-delay: 0s; }
+.stat-card.age-card .icon-container { animation-delay: 0.5s; }
+.stat-card.missions-card .icon-container { animation-delay: 1s; }
+.stat-card.level-card .icon-container { animation-delay: 1.5s; }
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); /* חזרה ל-4px, היה 3px */ }
+}
+
+.stat-card .stat-label {
+  font-size: 0.85em; /* חזרה ל-0.85em, היה 0.8em */
+  font-weight: 600;
+  margin-bottom: 4px; /* חזרה ל-4px, היה 3px */
+  margin-top: auto;
+}
+
+.stat-card .stat-value {
+  font-size: 2.2em; /* חזרה ל-2.2em, היה 2em */
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: auto;
+  color: white;
+}
+
+.points-card {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+}
+
+.age-card {
+  background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
+}
+
+.missions-card {
+  background: linear-gradient(135deg, #E91E63 0%, #F06292 100%);
+}
+
+.level-card {
+  background: linear-gradient(135deg, #FFC107 0%, #FFEB3B 100%);
+}
+
+.progress-section {
+  background-color: #E3F2FD;
+  border-radius: 15px; /* חזרה ל-15px, היה 12px */
+  /* הגדלת ריפוד */
+  padding: 20px 18px; /* חזרה ל-20px 18px, היה 15px */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  text-align: right;
+  color: #333;
+  font-family: 'Varela Round', sans-serif;
+  width: 100%; /* לוודא שהוא תופס את כל הרוחב המותר לו */
+}
+
+.progress-label {
+  font-size: 1em; /* חזרה ל-1em, היה 0.9em */
+  font-weight: 700;
+  color: #424242;
+  margin-bottom: 12px; /* חזרה ל-12px, היה 10px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.progress-label span {
+  font-size: 1.1em; /* חזרה ל-1.1em, היה 1em */
+  margin-right: 7px; /* חזרה ל-7px, היה 6px */
+  vertical-align: middle;
+}
+
+.progress-bar-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 8px; /* חזרה ל-8px, היה 6px */
+}
+
+progress {
+  width: 100%;
+  height: 12px; /* חזרה ל-12px, היה 10px */
+  border: none;
+  border-radius: 8px; /* חזרה ל-8px, היה 6px */
+  background-color: #e0e0e0;
+  overflow: hidden;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to right, #8BC34A, #FFEB3B);
+  border-radius: 8px;
+  transition: width 0.5s ease-in-out;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(to right, #8BC34A, #FFEB3B);
+  border-radius: 8px;
+}
+
+.progress-value-text {
+  display: block;
+  font-size: 0.8em; /* חזרה ל-0.8em, היה 0.7em */
+  color: #555;
+  font-weight: 600;
+  margin-top: 4px; /* חזרה ל-4px, היה 3px */
+  text-align: left;
+  direction: rtl;
+  font-family: 'Varela Round', sans-serif;
+}
+
+h2, .stat-label, .progress-label, .top-right-badge span, .progress-value-text {
+  direction: rtl;
+  text-align: right;
+}
+
+.username {
+  direction: rtl;
+}
+
+.star-decoration {
+  position: absolute;
+  color: #fee140;
+  font-size: 10px; /* חזרה ל-10px, היה 8px */
+  animation: twinkle 2s infinite;
+  z-index: 0;
+}
+
+.star-decoration:nth-child(1) { top: 8px; left: 8px; animation-delay: 0s; }
+.star-decoration:nth-child(2) { top: 12px; right: 70px; animation-delay: 0.5s; }
+.star-decoration:nth-child(3) { bottom: 18px; left: 18px; animation-delay: 1s; }
+.star-decoration:nth-child(4) { bottom: 12px; right: 8px; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); } /* חזרה ל-1.1, היה 1.08 */
+}
+
+@media (max-width: 480px) {
+  .user-dashboard-card {
+    padding: 15px; /* חזרה ל-15px, היה 12px */
+    margin: 0;
+  }
+
+  .user-dashboard-card h2 {
+    font-size: 22px; /* חזרה ל-22px, היה 20px */
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px; /* חזרה ל-12px, היה 8px */
+  }
+
+  .stat-card {
+    min-height: 90px; /* חזרה ל-90px, היה 80px */
+    padding: 15px; /* חזרה ל-15px, היה 10px */
+  }
+
+  .stat-card .stat-value {
+    font-size: 1.8em; /* חזרה ל-1.8em, היה 1.6em */
+  }
+
+  .progress-section {
+    padding: 18px 12px; /* חזרה ל-18px 12px, היה 12px */
+  }
+
+  .progress-label {
+    font-size: 0.9em; /* חזרה ל-0.9em, היה 0.8em */
+  }
+
+  progress {
+    height: 10px; /* חזרה ל-10px, היה 8px */
+  }
+
+  .progress-value-text {
+    font-size: 0.75em; /* חזרה ל-0.75em, היה 0.7em */
+  }
+
+  .profile-picture-container {
+    width: 90px; /* חזרה ל-90px, היה 70px */
+    height: 90px; /* חזרה ל-90px, היה 70px */
+    padding: 3px;
+  }
+
+  .default-icon {
+    font-size: 3.5em; /* חזרה ל-3.5em, היה 2.8em */
+  }
+
+  .stat-card .icon-container {
+    width: 30px;
+    height: 30px;
+    font-size: 1.1em;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* *** הוספות חדשות: עיצוב לכפתור ההצגה/הסתרה ולקונטיינר ההישגים *** */
+
+.toggle-achievements-button {
+  background: linear-gradient(135deg, #6200EE 0%, #BB86FC 100%); /* סגול יפה */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(98, 0, 238, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px; /* מרווח מהסקשן הקודם */
+  width: auto; /* רוחב לפי התוכן */
+  min-width: 200px;
+}
+
+.toggle-achievements-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(98, 0, 238, 0.4);
+  background: linear-gradient(135deg, #7F39FB 0%, #BB86FC 100%);
+}
+
+.toggle-achievements-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(98, 0, 238, 0.2);
+}
+
+.achievements-display-section {
+    margin-top: 30px; /* מרווח בין הכפתור לרשימת ההישגים */
+    width: 100%; /* לוודא שהוא תופס את כל הרוחב הזמין */
+    animation: fadeInScale 0.5s ease-out; /* אנימציית הופעה חלקה */
+    box-sizing: border-box; /* לוודא שריפוד וגבולות לא יחרגו מהרוחב */
+}
+
+/* אנימציה להופעה חלקה של סקשן ההישגים */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* התאמה למובייל לכפתור ולסקשן ההישגים */
+@media (max-width: 576px) {
+    .toggle-achievements-button {
+        font-size: 1em;
+        padding: 10px 20px;
+        min-width: unset; /* בטל min-width במובייל צר */
+        width: 100%; /* כפתור ברוחב מלא במובייל צר */
+    }
+    .achievements-display-section {
+        margin-top: 20px; /* הקטן מרווח במובייל */
+    }
+}
+/* src/app/user-summary/user-summary.component.css */
+
+/* כל הקוד הקיים שלך עבור .user-dashboard-card, .profile-header וכו' נשאר כאן למעלה */
+
+/* ------------------------------------------------------------------ */
+/* *** קוד CSS חדש עבור המודאל והרקע המטושטש *** */
+
+.modal-overlay {
+  position: fixed; /* מקם את המודאל באופן קבוע ביחס ל-viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* רקע כהה ושקוף */
+  backdrop-filter: blur(8px); /* טשטוש הרקע שמתחת */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* וודא שהמודאל מעל שאר התוכן */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  max-width: 90%; /* גודל מקסימלי של המודאל */
+  max-height: 90%; /* גובה מקסימלי של המודאל */
+  overflow-y: auto; /* אפשר גלילה אם התוכן ארוך מדי */
+  position: relative;
+  animation: fadeInScale 0.3s ease-out; /* אנימציית כניסה */
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #ff0000;
+}
+
+/* עיצובי ההישגים - הקוד הזה היה כבר בקובץ ה-CSS שלך, וודא שהוא מסודר במקום הנכון */
+.achievements-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-top: 20px; /* רווח מכפתור הסגירה */
+}
+
+.achievements-title {
+  color: #4CAF50;
+  font-size: 2em;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.no-achievements {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2em;
+  color: #777;
+}
+
+.no-achievements-icon {
+  font-size: 3em;
+  display: block;
+  margin-top: 15px;
+}
+
+.achievements-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.achievement-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-icon {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.achievement-name {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.achievement-description {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.achievement-progress {
+  font-size: 0.9em;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.achievement-completed {
+  font-size: 0.9em;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.next-achievement-hint {
+  background-color: #e0f7fa;
+  border-left: 5px solid #00bcd4;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.next-achievement-title {
+  font-size: 1.3em;
+  color: #00796b;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.next-achievement-description {
+  font-size: 1em;
+  color: #00796b;
+}
+
+/* אנימציית כניסה */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* *** הקוד הזה היה קיים אצלך, וודא שהוא נמצא במיקום הנכון *** */
+.toggle-achievements-button {
+  background: linear-gradient(135deg, #6200EE 0%, #BB86FC 100%);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(98, 0, 238, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+  width: auto;
+  min-width: 200px;
+}
+
+.toggle-achievements-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(98, 0, 238, 0.4);
+  background: linear-gradient(135deg, #7F39FB 0%, #BB86FC 100%);
+}
+
+.toggle-achievements-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(98, 0, 238, 0.2);
+}
+
+.achievements-display-section {
+    margin-top: 30px;
+    width: 100%;
+    animation: fadeInScale 0.5s ease-out;
+    box-sizing: border-box;
+}
+
+/* אנימציה להופעה חלקה של סקשן ההישגים */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* התאמה למובייל לכפתור ולסקשן ההישגים */
+@media (max-width: 576px) {
+    .toggle-achievements-button {
+        font-size: 1em;
+        padding: 10px 20px;
+        min-width: unset;
+        width: 100%;
+    }
+    .achievements-display-section {
+        margin-top: 20px;
+    }
+}

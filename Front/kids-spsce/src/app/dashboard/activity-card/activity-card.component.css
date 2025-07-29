@@ -1,0 +1,278 @@
+/* Import the same font for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top for list, or center for single view */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8e6cf 0%, #dce3ff 100%); /* Same playful background */
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
+  direction: rtl; /* Right-to-left for Hebrew */
+}
+
+.activity-detail-card {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  max-width: 600px; /* Wider card for content */
+  width: 100%;
+  text-align: right; /* Align text to the right for Hebrew */
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.8s ease-out; /* Fade-in and slight scale animation */
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align header content to the right */
+  margin-bottom: 30px;
+  gap: 15px; /* Space between icon and title */
+}
+
+.activity-icon {
+  font-size: 3em;
+  line-height: 1;
+  color: #FFC107; /* Yellow for icons */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  animation: bounceHeaderIcon 1.5s infinite alternate;
+}
+
+@keyframes bounceHeaderIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.activity-detail-card h2 {
+  font-size: 2.5em;
+  color: #4CAF50; /* Green for main title */
+  margin: 0;
+  font-weight: 800;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.activity-info p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.activity-info strong {
+  color: #333;
+}
+
+.points-value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align points info to the right */
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FF9800; /* Orange for points */
+  background-color: #FFF3E0;
+  border-radius: 10px;
+  padding: 8px 15px;
+  margin-top: 20px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  width: fit-content; /* Fit content width */
+  margin-right: 0; /* Align right */
+  margin-left: auto; /* Push to right */
+}
+
+.points-value .points-icon {
+  font-size: 1.3em;
+  margin-right: 8px; /* Space between icon and text */
+  animation: rotateStar 2s infinite linear;
+}
+
+@keyframes rotateStar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.story-content-section {
+  background-color: #F8F8F8;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  text-align: right;
+  border: 1px solid #eee;
+  /* Removed: max-height and overflow from here, moved to .story-pre */
+}
+
+.story-content-section h3 {
+  font-size: 1.5em;
+  color: #3F51B5; /* Blue for story content title */
+  margin-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+}
+
+.story-content-section h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3F51B5;
+  margin-top: 5px;
+  margin-right: 0; /* Align right */
+  margin-left: auto; /* Push to right */
+}
+
+.story-pre { /* Styling for the <pre> tag specifically */
+  font-size: 1.15em; /* Slightly larger font for readability */
+  color: #333; /* Darker text for better contrast */
+  line-height: 2; /* Increased line height for spacious reading */
+  white-space: pre-wrap; /* Ensure pre-wrap is honored */
+  text-align: right;
+  background-color: #ffffff; /* Brighter background for story content */
+  border-radius: 12px; /* Slightly more rounded corners */
+  padding: 25px; /* More padding inside the story content */
+  border: 1px solid #e0e0e0;
+  max-height: 400px; /* Increased max-height for more visible content */
+  overflow-y: auto; /* Add scroll if content overflows */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  /* Custom scrollbar styling (Webkit browsers) */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #8BC34A #f1f1f1; /* Firefox - Green thumb for better look */
+}
+
+/* Webkit scrollbar (for Chrome, Safari, Edge) */
+.story-pre::-webkit-scrollbar {
+  width: 10px; /* Wider scrollbar */
+}
+
+.story-pre::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.story-pre::-webkit-scrollbar-thumb {
+  background: #8BC34A; /* Green thumb */
+  border-radius: 10px;
+}
+
+.story-pre::-webkit-scrollbar-thumb:hover {
+  background: #689F38; /* Darker green on hover */
+}
+
+/* Updated: Styles for the "קראתי" button - simpler and aligned right */
+.add-point-button {
+  background: none; /* No background fill */
+  border: 2px solid #4CAF50; /* Green border */
+  color: #4CAF50; /* Green text color */
+  padding: 8px 15px; /* Smaller padding */
+  border-radius: 10px; /* Slightly less rounded */
+  font-size: 0.95em; /* Smaller font size */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: none; /* No box shadow for a flatter look */
+  transition: all 0.3s ease;
+  margin-top: 25px; /* Reduced space from story content */
+  margin-bottom: 10px; /* Reduced space before back button */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align button content to the right */
+  width: fit-content; /* Fit content width */
+  margin-right: 0; /* Align button itself to the right */
+  margin-left: auto; /* Push button to the right */
+}
+
+.add-point-button:hover {
+  background-color: #E8F5E9; /* Light green background on hover */
+  color: #388E3C; /* Darker green text on hover */
+  border-color: #388E3C; /* Darker green border on hover */
+  transform: none; /* No translate effect on hover for solidity */
+  box-shadow: none; /* Still no shadow on hover */
+}
+
+.add-point-button span { /* Styling for the ✅ icon inside the button */
+  font-size: 1.1em; /* Adjusted icon size */
+  margin-left: 8px; /* Space between icon and text */
+}
+
+
+.back-button {
+  background: linear-gradient(135deg, #607D8B 0%, #90A4AE 100%); /* Grey/blue gradient for back button */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl; /* Hebrew direction */
+  width: fit-content; /* Fit content width */
+  margin-right: auto; /* Center the button */
+  margin-left: auto; /* Center the button */
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #78909C 0%, #B0BEC5 100%);
+}
+
+.back-button .button-icon {
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .activity-detail-card {
+    padding: 25px;
+    margin: 10px;
+  }
+
+  .activity-detail-card h2 {
+    font-size: 1.8em;
+  }
+
+  .activity-icon {
+    font-size: 2.5em;
+  }
+
+  .activity-info p {
+    font-size: 1em;
+  }
+
+  .story-content-section {
+    padding: 15px;
+  }
+
+  .story-content-section h3 {
+    font-size: 1.3em;
+  }
+
+  .story-pre {
+    font-size: 0.95em;
+    padding: 15px; /* Adjusted padding for small screens */
+  }
+
+  .add-point-button, /* Apply responsive styles to new button too */
+  .back-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .add-point-button {
+    font-size: 0.9em; /* Even smaller on tiny screens */
+    padding: 6px 12px;
+  }
+}

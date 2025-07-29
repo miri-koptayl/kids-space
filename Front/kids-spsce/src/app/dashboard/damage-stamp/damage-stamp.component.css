@@ -1,0 +1,264 @@
+/* General Game Container Styling */
+.game-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* Title and Description */
+  .game-title {
+    font-size: 2.2em;
+    color: #34495e;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .game-description {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  
+  /* Buttons Styling */
+  .start-button,
+  .check-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .start-button {
+    background-color: #2ecc71; /* Green */
+    color: white;
+  }
+  
+  .start-button:hover:not([disabled]) {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .start-button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  .check-button {
+    background-color: #3498db; /* Blue */
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .check-button:hover:not([disabled]) {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .check-button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* Input Area Styling */
+  .game-input-area {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-label {
+    display: block;
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
+  .input-and-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between input and button */
+  }
+  
+  .guess-input {
+    padding: 12px 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 1.4em;
+    text-align: center;
+    width: 120px; /* Fixed width for 4 digits */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    -moz-appearance: textfield; /* Remove number input arrows on Firefox */
+  }
+  
+  .guess-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Hide number input arrows on Chrome/Safari */
+  .guess-input::-webkit-outer-spin-button,
+  .guess-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Feedback Area */
+  .feedback-area {
+    margin-top: 25px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+    min-height: 40px; /* Ensure consistent height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Default text color */
+  }
+  
+  .feedback-area p {
+    margin: 0;
+  }
+  
+  .feedback-area.win {
+    background-color: #d4edda; /* Light green for win */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+  }
+  
+  .feedback-area.lose {
+    background-color: #f8d7da; /* Light red for lose */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* History Area */
+  .history-area {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .history-title {
+    font-size: 1.4em;
+    color: #34495e;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .history-item {
+    background-color: #eceff1;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05em;
+    color: #444;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .history-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .attempt-number {
+    font-weight: 600;
+    color: #555;
+    min-width: 90px; /* Ensure alignment */
+    text-align: left;
+  }
+  
+  .attempt-guess {
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code-like guess */
+    font-weight: bold;
+    color: #1a1a1a;
+    flex-grow: 1; /* Take available space */
+    text-align: center;
+  }
+  
+  .attempt-result {
+    color: #2980b9; /* Blue for results */
+    font-weight: 500;
+    min-width: 150px; /* Ensure alignment */
+    text-align: right;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .game-container {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .game-title {
+      font-size: 1.8em;
+    }
+  
+    .game-description {
+      font-size: 1em;
+    }
+  
+    .start-button,
+    .check-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      width: 100%; /* Full width buttons on small screens */
+      margin: 8px 0;
+    }
+  
+    .input-and-button {
+      flex-direction: column; /* Stack input and button vertically */
+      gap: 15px;
+    }
+  
+    .guess-input {
+      width: 100%; /* Full width input */
+    }
+  
+    .history-item {
+      flex-direction: column; /* Stack history items vertically */
+      align-items: flex-start;
+      padding: 12px;
+    }
+  
+    .attempt-number,
+    .attempt-guess,
+    .attempt-result {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+  }

@@ -1,0 +1,82 @@
+<div class="user-dashboard-card">
+  <div class="top-right-badge">
+    <span *ngIf="userAchievements && userAchievements.length > 0">
+      {{ userAchievements[userAchievements.length - 1].name }} 🏆
+    </span>
+    <span *ngIf="!userAchievements || userAchievements.length === 0">
+      כוכב מתחיל ✨
+    </span>
+  </div>
+
+  <div class="profile-header">
+    <div class="profile-picture-container">
+      <ng-container *ngIf="user?.profilePictureUrl; else defaultProfileIcon">
+        <img
+          [src]="user.profilePictureUrl"
+          alt="פרופיל משתמש"
+          class="profile-picture"
+          (error)="onImageError($event)"
+        />
+      </ng-container>
+      <ng-template #defaultProfileIcon>
+        <span class="default-icon">👦</span>
+      </ng-template>
+    </div>
+    <h2>שלום, <span class="username">{{ user?.username }}!</span></h2>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card points-card">
+      <div class="icon-container">
+        <span>💎</span>
+      </div>
+      <span class="stat-label">נקודות</span>
+      <strong class="stat-value">{{ user?.totalPoints }}</strong>
+    </div>
+
+    <div class="stat-card age-card">
+      <div class="icon-container">
+        <span>🎂</span>
+      !      </div>
+      <span class="stat-label">הגיל שלי</span>
+      <strong class="stat-value">{{ user?.age }}</strong>
+    </div>
+
+    <div class="stat-card missions-card">
+      <div class="icon-container">
+        <span>🎯</span>
+      </div>
+      <span class="stat-label">משימות</span>
+      <strong class="stat-value">{{ user?.completedMissions || '0' }}/{{ user?.totalMissions || '10' }}</strong>
+    </div>
+
+    <div class="stat-card level-card">
+      <div class="icon-container">
+        <span>🚀</span>
+      </div>
+      <span class="stat-label">רמה</span>
+      <strong class="stat-value">{{ user?.level }}</strong>
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <label class="progress-label">
+      <span>👁️</span>
+      התקדמות לרמה הבאה
+    </label>
+    <div class="progress-bar-wrapper">
+      <progress [value]="user?.totalPoints" [max]="user?.pointsForNextLevel || 100"></progress>
+      <span class="progress-value-text">
+        {{ user?.totalPoints }} / {{ user?.pointsForNextLevel || 100 }} נקודות לרמה {{ user?.level + 1 || '' }}
+      </span>
+    </div>
+  </div>
+
+  <button class="toggle-achievements-button" (click)="toggleAchievementsList()">
+    {{ showAchievementsList ? 'הסתר הישגים ⬆️' : 'ההישגים שלי ⬇️' }}
+  </button>
+
+  <div *ngIf="showAchievementsList" class="achievements-display-section">
+    <app-user-achievement [userAchievements]="userAchievements" [nextUserAchievements]="nextUserAchievements"></app-user-achievement>
+  </div>
+</div>
