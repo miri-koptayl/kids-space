@@ -1,0 +1,13 @@
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\Backend.CORE.deps.json
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\Backend.CORE.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\Backend.CORE.pdb
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.csproj.AssemblyReference.cache
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.GeneratedMSBuildEditorConfig.editorconfig
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.AssemblyInfoInputs.cache
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.AssemblyInfo.cs
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.csproj.CoreCompileInputs.cache
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.sourcelink.json
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\refint\Backend.CORE.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\Backend.CORE.pdb
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\obj\Release\net8.0\ref\Backend.CORE.dll

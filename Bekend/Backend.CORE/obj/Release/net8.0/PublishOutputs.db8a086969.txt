@@ -1,0 +1,8 @@
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Backend.CORE.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Backend.CORE.deps.json
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Backend.CORE.pdb
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Microsoft.IdentityModel.Abstractions.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Microsoft.IdentityModel.Logging.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\Microsoft.IdentityModel.Tokens.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.CORE\bin\Release\net8.0\publish\System.IdentityModel.Tokens.Jwt.dll

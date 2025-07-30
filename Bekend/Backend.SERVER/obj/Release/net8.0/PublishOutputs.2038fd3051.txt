@@ -1,0 +1,14 @@
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Backend.SERVER.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Backend.SERVER.deps.json
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Backend.SERVER.pdb
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.Extensions.Options.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.Extensions.Primitives.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.IdentityModel.Abstractions.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.IdentityModel.Logging.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Microsoft.IdentityModel.Tokens.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\System.IdentityModel.Tokens.Jwt.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Backend.CORE.dll
+C:\מירי\פרויקטים\פרויקט פרקטיקום\Bekend\Backend.SERVER\bin\Release\net8.0\publish\Backend.CORE.pdb
