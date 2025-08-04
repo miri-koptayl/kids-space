@@ -61,7 +61,9 @@ namespace Backend.API.Controllers
                 userDto.Age,
                 userDto.ProfilePictureUrl ?? "", 
                 userDto.TotalPoints,
-                userDto.Agegroup
+                userDto.Agegroup,
+                userDto.Level
+            
             );
 
             var token = _jwtService.GenerateToken(newUser);
@@ -80,6 +82,7 @@ namespace Backend.API.Controllers
                     newUser.ProfilePictureUrl, 
                     newUser.TotalPoints,
                     newUser.Agegroup,
+                    newUser.Level
 
                 }
             });
@@ -170,7 +173,8 @@ namespace Backend.API.Controllers
                         user.Age,
                         user.Password,
                         user.TotalPoints,
-                        user.ProfilePictureUrl
+                        user.ProfilePictureUrl,
+                        user.Level
                     }
                 });
             }
